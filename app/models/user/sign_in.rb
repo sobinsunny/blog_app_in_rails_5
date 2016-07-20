@@ -9,14 +9,9 @@ class User::SignIn < ActiveType::Object
 			errors.add(:email,"User not found")
 		end
 	end
-
-
-
-
-private
- def user
- 	User.find_by_email(self.email)
- 	
- end
-
+	
+  private
+  def user
+ 	  User.find_by_email(self.email)
+  end
 end
