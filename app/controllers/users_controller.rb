@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     build_user
     if @user.save
-      flash[:sucess]="Successfully Created"
+      flash[:sucess] = 'Successfully Created'
       redirect_to home_path
     else
       render :new
@@ -28,14 +28,14 @@ class UsersController < ApplicationController
     build_user
   end
 
-private
+  private
+
   def build_user
     @user ||= User::SignUp.new(user_parameters)
   end
 
   def user_parameters
-     user_params = params[:user]
-     user_params.permit(:email,:name,:password,:password_confirmation) if user_params.present?
+    user_params = params[:user]
+    user_params.permit(:email, :name, :password, :password_confirmation) if user_params.present?
   end
-
 end
