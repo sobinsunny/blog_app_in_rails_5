@@ -8,9 +8,10 @@ class UsersController < ApplicationController
   def create
     build_user
     if @user.save
-      flash[:sucess] = 'Successfully Created'
+      flash[:success] = 'Successfully Created'
       redirect_to home_path
     else
+      flash[:error] = 'Error'
       render :new
     end
   end
