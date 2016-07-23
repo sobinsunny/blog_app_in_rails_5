@@ -1,11 +1,18 @@
-<%= form_for @user do |form|%>
-	<%= form.label :name %>
-	<%= form.text_field :name %>
-	<%= form.label :email %>
-	<%= form.text_field :email %>
+<div class="span3">
+    <h2>Sign Up</h2>
+    <%= form_for @user do |form|%>
+    <%= form.label :name%>
+    <%= form.text_field :name,:class=>'span3' %>
+    <%= error_message form,:name%>
+    <%= form.label :email %>
+	<%= form.text_field :email,:class=>'span3' %>
+	<%= error_message form,:email%>
 	<%= form.label :password %>
-	<%= form.password_field :password %>
+	<%= form.password_field :password ,:class=>'span3' %>
+	<%= error_message form,:password%>
 	<%= form.label :password_confirmation %>
-	<%= form.password_field :password_confirmation%>
-<%= form.submit %>
-<%end%>
+	<%= form.password_field :password_confirmation,:class=>'span3' %>
+	<%= error_message form,:password_confirmation%>
+	<%= form.submit %>    
+  <%end%>
+</div>
