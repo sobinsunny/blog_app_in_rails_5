@@ -3,5 +3,6 @@ FactoryGirl.define do
 	    name 'Sample Name'
 	    email 'sample@gmail.com'
 	    password 'rails_123'
+	    password_confirmation 'rails_123'
   end
 end
