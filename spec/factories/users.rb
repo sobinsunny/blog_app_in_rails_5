@@ -1,8 +1,7 @@
 FactoryGirl.define do
-  factory :user do
-    name 'MyString'
-    email 'MyString'
-    password_hash 'MyString'
-    password_salt 'MyString'
+  factory :sign_up,:class=>User::SignUp do
+	    name 'Sample Name'
+	    email 'sample@gmail.com'
+	    password 'rails_123'
   end
 end
