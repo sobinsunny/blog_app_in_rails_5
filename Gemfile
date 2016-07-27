@@ -36,11 +36,12 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec-rails', '~> 3.0.0'
-  gem 'factory_girl_rails', '~>4.7.0'
+  gem 'rspec', '~> 3.5'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.7.0'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'capybara'
-  gem "rubycritic", :require => false
+  gem 'rubycritic', require: false
 end
 
 group :development do

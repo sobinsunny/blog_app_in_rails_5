@@ -7,8 +7,9 @@ class User < ApplicationRecord
   def has_password?(password)
     password_hash == BCrypt::Engine.hash_secret(password, password_salt)
   end
+
   def set_user_name
-    self.name = "blog_#{self.name}"
+    self.name = "blog_#{name}"
   end
 
   protected
