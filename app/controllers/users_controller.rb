@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user, except: [:new, :create]
+  before_filter :set_user,except: [:index,:new]
+  
   def index
+    @users = User.all
   end
 
   def show
@@ -21,16 +24,17 @@ class UsersController < ApplicationController
   end
 
   def edit
+    set_user
   end
 
   def destroy
   end
 
   def new
-    build_user
   end
 
   private
+
 
   def set_user
     @user ||= User.find(prams[:id])

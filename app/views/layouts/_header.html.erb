@@ -15,6 +15,7 @@
  		<div class="collapse navbar-collapse" id="navigation">
  			<ul class="nav navbar-nav navbar-right">
  				<%if user_signed?%>
+ 				    <li><%= current_user.name %></li>
  					<li><%= link_to "Log out",logout_path,:method=>"delete" %></li>
  				<%else%>
  				 	<li><%= link_to "Sign up",new_user_path %></li>

@@ -27,7 +27,6 @@ class SessionsController < ApplicationController
   end
 
   def set_user_session
-    current_user
     session[:user_id] = user.id
   end
 
