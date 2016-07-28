@@ -16,6 +16,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    @current_user = session[:user_id] = nil
+    redirect_to new_session_path
   end
 
   private
@@ -30,7 +32,7 @@ class SessionsController < ApplicationController
   end
 
   def current_user
-    @current_user ||= User.find_by_email(params[:email])
+    @user ||= User.find_by_email(sign_in_params[:email])
   end
 
   def sign_in_params

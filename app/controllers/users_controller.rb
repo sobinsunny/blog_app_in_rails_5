@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user ,except: [:new,:create]
   def index
   end
 
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
     build_user
     if @user.save
       flash[:success] = 'Successfully Created'
-      redirect_to home_path
+      redirect_to login_path
     else
       flash[:error] = 'Error'
       render :new
@@ -30,6 +31,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user ||= User.find(prams[:id])
+  end
 
   def build_user
     @user ||= User::SignUp.new(user_parameters)
