@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  helper_method :current_user
+
   def home
   end
 
@@ -15,6 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   def session_id
-  	session[:user_id]
+    session[:user_id]
   end
 end

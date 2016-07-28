@@ -1,22 +1,17 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-offset-5 col-md-3">
-			<div class="form-login">
-			<%= form_for(@user_sign_in, url: sessions_path) do |form| %>
-				<h4>Welcome back.</h4>
-				<%= form.text_field :email,:class=>"form-control input-sm chat-input",:placeholder=>"Email"%>
-				<%= error_message form,:email%>
-				</br>
-				<%= form.password_field :password,:class=>"form-control input-sm chat-input",:placeholder=>"Password"%>
-				<%= error_message form,:password%>
-				</br>
-				<div class="wrapper">
-					<span class="group-btn">     
-						<%= form.submit "Login in",:class=>"btn btn-primary btn-md"%>
-					</span>
-				</div>
-				<% end %>
-			</div>
-		</div>
+
+<div class="form-login">
+<%= form_for(@user_sign_in, url: sessions_path) do |form| %>
+    <h4>Welcome</h4>
+		<%= form.text_field :email,:class=>"form-control input-sm chat-input",:placeholder=>"Email"%>
+		<%= error_message form,:email%>
+	</br>
+	<%= form.password_field :password,:class=>"form-control input-sm chat-input",:placeholder=>"Password"%>
+	<%= error_message form,:password%>
+	</br>
+	<div class="wrapper">
+		<span class="group-btn">     
+			<%= form.submit "Login in",:class=>"btn btn-primary btn-md"%>
+		</span>
 	</div>
+<% end %>
 </div>
