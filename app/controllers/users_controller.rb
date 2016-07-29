@@ -49,3 +49,7 @@ class UsersController < ApplicationController
     user_params.permit(:email, :name, :password, :password_confirmation) if user_params.present?
   end
 end
+
+
+
+Student.find(:all,:conditions => ["first_name LIKE ? OR middle_name LIKE ? OR last_name LIKE ?  OR admission_no = ? OR (concat(first_name, \" \", last_name) LIKE ? ) ",  "#{query}%", "#{query}%", "#{query}%","#{query}", "#{query}%"],:order => "first_name asc")

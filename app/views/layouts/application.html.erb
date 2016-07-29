@@ -7,23 +7,23 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-   <div class="wrapper">
-      <%=render partial: "layouts/header"%>
-      <header class="header">
-        <div class="container">
-          <div class="row">
-                <div class="col-md-5 col-md-offset-1">
-                <div class="content">
+ <div class="wrapper">
+  <%=render partial: "layouts/header"%>
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 col-md-offset-1">
+          <div class="content">
            <% flash.each do |key, value| %>
            <div class="alert <%= flash_class(key) %> " role="alert"><%= value %></div>
            <% end %>
            <%= yield %>
-          </div>
-        </div>
-        </div>
-        </div>
-      </header>
-     <%=render partial: "layouts/footer"%>
-    </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </header>
+ <%=render partial: "layouts/footer"%>
+</div>
 </body>
 </html>
