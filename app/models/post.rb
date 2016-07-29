@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
-	belongs_to :author ,:class=>"User"
-	validate [:title,:content] presence: true
+	belongs_to :author,class_name: "User"
+	validate [:title,:content] ,presence: true
 end
