@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   root 'sessions#new', as: 'login'
   delete 'logout' => 'sessions#destroy'
 
