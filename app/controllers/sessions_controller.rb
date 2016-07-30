@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user_sign_in.save
       set_user_session
       flash[:success] = 'Successfully Logined'
-      redirect_to @user
+      redirect_to dashbord_user_path(@user)
     else
       flash[:error] = 'Error in login'
       render :new

@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user, except: [:new, :create]
-  before_filter :set_user,except: [:index,:new]
   
   def index
     @users = User.all
   end
 
   def show
+
   end
 
   def create
@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def dashbord
+    @user = User.find(params[:id])
+  end
+
   def update
   end
 
@@ -31,13 +35,14 @@ class UsersController < ApplicationController
   end
 
   def new
+    build_user
   end
 
   private
 
 
   def set_user
-    @user ||= User.find(prams[:id])
+ 
   end
 
   def build_user
@@ -49,7 +54,3 @@ class UsersController < ApplicationController
     user_params.permit(:email, :name, :password, :password_confirmation) if user_params.present?
   end
 end
-
-
-
-Student.find(:all,:conditions => ["first_name LIKE ? OR middle_name LIKE ? OR last_name LIKE ?  OR admission_no = ? OR (concat(first_name, \" \", last_name) LIKE ? ) ",  "#{query}%", "#{query}%", "#{query}%","#{query}", "#{query}%"],:order => "first_name asc")

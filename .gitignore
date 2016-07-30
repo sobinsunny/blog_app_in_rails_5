@@ -12,6 +12,9 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/log/*
+/migrate/schema.rb
+/config/database.yml
 
 # Ignore Byebug command history file.
 .byebug_history
