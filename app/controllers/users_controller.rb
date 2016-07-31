@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user, except: [:new, :create]
-  
+  before_action :authenticate_user, except: [:new, :create]
+
   def index
     @users = User.all
   end
 
   def show
-
   end
 
   def create
@@ -21,7 +20,8 @@ class UsersController < ApplicationController
   end
 
   def dashbord
-    @user = User.find(params[:id])
+   @user= User.find(params[:id])
+   @posts = @user.posts
   end
 
   def update
@@ -40,9 +40,7 @@ class UsersController < ApplicationController
 
   private
 
-
   def set_user
- 
   end
 
   def build_user

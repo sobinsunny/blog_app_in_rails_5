@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
-	belongs_to :author,class_name: "User",foreign_key: "author_id"
-	validate [:title,:content] ,presence: true
+  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
+  validates :title, :content, presence: true
 end

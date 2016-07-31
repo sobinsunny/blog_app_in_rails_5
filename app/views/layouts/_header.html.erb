@@ -8,18 +8,22 @@
  				<span class="icon-bar"></span>
  				<span class="icon-bar"></span>
  			</button>
- 			<a class="navbar-brand text-uppercase" href="#"> Bloggy Man</a>
+ 			<%if user_signed?%>
+ 			<%= link_to "Bloggy Man", dashbord_user_path(@current_user),{:class=>"navbar-brand text-uppercase"} %>
+ 			<%else%>
+ 			<a class="navbar-brand text-uppercase" href="#">Bloggy Man</a>
+ 			<%end%>
  		</div>
 
  		<!-- Collect the nav links, forms, and other content for toggling -->
  		<div class="collapse navbar-collapse" id="navigation">
  			<ul class="nav navbar-nav navbar-right">
  				<%if user_signed?%>
- 				    <li><%= current_user.name %></li>
- 					<li><%= link_to "Log out",logout_path,:method=>"delete" %></li>
+ 				<li><%= current_user.name %></li>
+ 				<li><%= link_to "Log out",logout_path,:method=>"delete" %></li>
  				<%else%>
- 				 	<li><%= link_to "Sign up",new_user_path %></li>
- 					<li><button type="button" class="btn btn-success navbar-btn btn-circle"><%=link_to "Sign in",login_path%></button></li>
+ 				<li><%= link_to "Sign up",new_user_path %></li>
+ 				<li><button type="button" class="btn btn-success navbar-btn btn-circle"><%=link_to "Sign in",login_path%></button></li>
  				<%end%>
 
  			</ul>

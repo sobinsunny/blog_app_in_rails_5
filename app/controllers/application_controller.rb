@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   def home
   end
 
-
   def authenticate_user
     redirect_to new_session_path unless session[:user_id].present?
     current_user if session[:user_id].present?

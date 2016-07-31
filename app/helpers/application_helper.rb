@@ -7,8 +7,8 @@ module ApplicationHelper
     else 'alert-danger'
     end
   end
- def user_signed?
- 	session[:user_id].present?
- end
 
+  def user_signed?
+    session[:user_id].present?
+  end
 end

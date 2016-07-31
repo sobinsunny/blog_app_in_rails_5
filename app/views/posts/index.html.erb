@@ -20,9 +20,9 @@
         <td><%= post.content %></td>
         <td><%= post.author_id %></td>
         <td><%= post.is_published %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_post_path(@author,post) %></td>
+        <td><%= link_to 'Edit', edit_user_post_path(@author,post) %></td>
+        <td><%#= link_to 'Destroy', user_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_user_post_path %>
