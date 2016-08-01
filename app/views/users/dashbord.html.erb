@@ -1,1 +1,30 @@
-<%= link_to "Posts",posts_path%>
+<%= link_to "New Post", new_user_post_path(@user)%>
+
+<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+	<ul class="event-list">
+		<%@posts.each do |post|%>
+		<li>
+			<time datetime="#{<%=post.created_at.strftime("%d-%m-%Y")%>}">
+				<span class="day"><%=post.created_at.day%></span>
+				<span class="month"><%=post.created_at.strftime("%b")%></span>
+				<span class="year"><%=post.created_at.year%></span>
+			</time>
+			<img alt="Independence Day" src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" />
+			<div class="info">
+				<h2 class="title"><%=post.title%></h2>
+				<p class="desc"><%=post.content%></p>
+			</div>
+			<div class="social">
+				<ul>
+					<li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
+					<li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+					<li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
+				</ul>
+			</div>
+		</li>
+
+		<%end%>
+	</ul>
+</div>
+</div>
+</div>
