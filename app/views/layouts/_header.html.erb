@@ -8,7 +8,7 @@
  				<span class="icon-bar"></span>
  				<span class="icon-bar"></span>
  			</button>
- 			<%if user_signed?%>
+ 			<%unless @current_user.nil?%>
  			<%= link_to "Bloggy Man", dashbord_user_path(@current_user),{:class=>"navbar-brand text-uppercase"} %>
  			<%else%>
  			<a class="navbar-brand text-uppercase" href="#">Bloggy Man</a>
