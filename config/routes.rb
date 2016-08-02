@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root 'sessions#new', as: 'login'
   delete 'logout' => 'sessions#destroy'
-
+  resources :posts
   resources :users do
-    resources :posts
   	member do
 		  get :dashbord 
     end
