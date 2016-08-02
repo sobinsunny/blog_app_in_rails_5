@@ -7,7 +7,16 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if params[:tag_name]
+      tags=params[:tag_names].split(',')
+      @posts = Tag.find_by_name(tags).posts
+    else
+      @posts = Post.all
+    end
+  end
+
+  def search
+     
   end
 
   # GET /posts/1
