@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   root 'sessions#new', as: 'login'
   delete 'logout' => 'sessions#destroy'
-  resources :posts
   resources :users do
   	member do
 		  get :dashbord 
+    end
+  end
+
+  resources :posts do 
+     collection do
+      get :search
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
