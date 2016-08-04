@@ -20,8 +20,8 @@ class UsersController < ApplicationController
   end
 
   def dashbord
-   @user= User.find(params[:id])
-   @posts = @user.posts
+    @user = User.find(params[:id])
+    @posts = @user.posts
   end
 
   def update
