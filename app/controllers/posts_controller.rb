@@ -3,12 +3,11 @@ class PostsController < ApplicationController
   before_action :set_author
   before_action :authenticate_user
 
-
   # GET /posts
   # GET /posts.json
   def index
     if params[:tag_name]
-      tags=params[:tag_names].split(',')
+      tags = params[:tag_names].split(',')
       @posts = Tag.find_by_name(tags).posts
     else
       @posts = Post.all
@@ -16,7 +15,6 @@ class PostsController < ApplicationController
   end
 
   def search
-     
   end
 
   # GET /posts/1
@@ -86,6 +84,6 @@ class PostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:title, :content,:all_tags)
+    params.require(:post).permit(:title, :content, :all_tags)
   end
 end
