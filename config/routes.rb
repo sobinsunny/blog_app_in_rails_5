@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   root 'sessions#new', as: 'login'
   delete 'logout' => 'sessions#destroy'
   resources :users do
-  	member do
-		  get :dashbord 
+    member do
+      get :dashbord
     end
   end
 
-  resources :posts do 
-     collection do
+  resources :posts do
+    collection do
       get :search
     end
   end
