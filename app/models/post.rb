@@ -12,6 +12,10 @@ class Post < ApplicationRecord
   validates :author_id,presence: true
   validates :title, :content, presence: true
 
+  def self.tagged_with(names)
+    tags = names.split(" ")
+    Tag.find_by_name!(name).posts
+  end
 
   def all_tags=(tags)
     self.tags = tags.split(",").map do |tag|

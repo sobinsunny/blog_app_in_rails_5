@@ -11,6 +11,9 @@ class PostsController < ApplicationController
   end
 
   def search
+    @posts=Post.tagged_with(params[:query])
+
+
   end
 
   # GET /posts/1

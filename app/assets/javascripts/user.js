@@ -2,7 +2,7 @@ $(document).ready(function(){
 	var typingTimer;
 	var doneTypingInterval = 5000;
 	$('#query').on('keyup', function () {
-		var url ="posts/search"
+		var url = "/posts/search"
 		clearTimeout(typingTimer);
 		typingTimer = setTimeout(doneTyping(url), doneTypingInterval);
 	});
@@ -17,9 +17,13 @@ $(document).ready(function(){
 	function doneTyping (url) {
 		var query_string = get_query_string()
 		$.ajax({
-			url: url+'/'+query_string, 
+			url: url,
+			data: {
+				query: query_string
+			},
 			success: function(result){
 				$("#post_list_div").html(result);
-			}});
+			}
+		});
 	}
 });
