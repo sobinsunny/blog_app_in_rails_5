@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def dashbord
-   @user= User.find(params[:id])
+   @user= User.includes(:posts).where(:id=>params[:id])
    @posts = @user.posts
   end
 
