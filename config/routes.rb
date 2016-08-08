@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'sessions#new', as: 'login'
-<<<<<<< HEAD
   get 'logout' => 'sessions#destroy'
   resources :posts do
     collection  do
@@ -11,18 +10,6 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :dashbord
-=======
-  delete 'logout' => 'sessions#destroy'
-  resources :users do
-    member do
-      get :dashbord
-    end
-  end
-
-  resources :posts do
-    collection do
-      get :search
->>>>>>> a84907825a29f06668f0fd1d16f84766fc599a5d
     end
   end
   resources :sessions, only: [:new, :create]
