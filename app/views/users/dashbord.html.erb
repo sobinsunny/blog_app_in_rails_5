@@ -1,5 +1,11 @@
-
-
-<div id='post_list'>
+<div class="row">
+    <h2>Search</h2>
+    <div id="custom-search-input">
+    <div class="input-group col-md-12">
+            <input id = "query" type="text" class="  search-query form-control" placeholder="Search" />
+        </div>
+    </div>
+</div>
+<div id='post_list_div' style="margin-top: 50px;">
     <%=render partial: "posts/post_list" %>
 </div>
