@@ -3,15 +3,16 @@ class PostsController < ApplicationController
   before_action :set_author
   before_action :authenticate_user
   def index
-    if params[:tag_name]
-      tags = params[:tag_names].split(',')
-      @posts = Tag.find_by_name(tags).posts
-    else
       @posts = Post.all
-    end
   end
 
   def search
+   if params[:tag_names]
+      tags = params[:tag_names].split(',')
+      @posts = Tag.find_by_name(tags).posts
+    else
+      @posts=Post.all
+    end
   end
 
   # GET /posts/1
