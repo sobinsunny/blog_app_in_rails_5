@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_author
   before_action :authenticate_user
   def index
       @posts = Post.all
@@ -8,8 +7,7 @@ class PostsController < ApplicationController
 
   def search
    if params[:tag_names]
-      tags = params[:tag_names].split(',')
-      @posts = Tag.find_by_name(tags).posts
+     @posts=Post.tagged_with(params[:query])
     else
       @posts=Post.all
     end
@@ -27,6 +25,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    
   end
 
   # POST /posts
@@ -76,9 +75,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def set_author
-    @author = User.find(params[:user_id]) if params[:user_id].present?
-  end
+  # def set_author
+  #   @author = User.find(params[:user_id]) if params[:user_id].present?
+  # end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params

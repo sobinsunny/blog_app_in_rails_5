@@ -1,24 +1,34 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+<div class="panel">
+	<div class="panel-heading">
+		<div class="text-center">
+			<div class="row">
+				<div class="col-sm-9">
+					<h3 class="pull-left"> <%= @post.title %> </h3>
+				</div>
+				<div class="col-sm-3">
+					<h4 class="pull-right">
+						<small><em><%=@post.created_at.strftime("%d-%m-%y")%></em></small>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @post.author_id %>
-</p>
+	<div class="panel-body">
+		<div class="thumbnail">
+			<img alt="Image" src="http://i.imgur.com/tAHVmXi.jpg"/>
+			<p>
+				<%= @post.content %>
+			</p>
+		</div>
 
-<p>
-  <strong>Is published:</strong>
-  <%= @post.is_published %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path(@author) %>
+		<div class="panel-footer">
+			<%@post.all_tags.each do |tag|%>
+			<span class="label label-default"><%=tag.to_s%></span> 
+			<%end%>
+		</div>
+	</div>
+	<div class="text-center"><%= link_to 'Edit', edit_post_path(@post) %> |	<%= link_to 'Back', dashbord_user_path(@post.author) %></div>
+</div>

@@ -1,21 +1,36 @@
 class Post < ApplicationRecord
   #### Attributes ######
+  after_initialize :default_values
 
   ####### Relationships #####
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   has_many :taggings
   has_many :tags, through: :taggings
-  # #validations###
-  validates :author_id, presence: true
+
+  ##validations###
+
+  validates :author_id,presence: true
   validates :title, :content, presence: true
 
+  def self.tagged_with(names)
+    tags = names.split(" ")
+    Tag.find_by_name!(name).posts
+  end
+
   def all_tags=(tags)
-    self.tags = tags.split(',').map do |tag|
-      Tag.where(name: tag.strip).first_or_create!
+    self.tags = tags.split(",").map do |tag|
+      Tag.where(name:tag.strip).first_or_create!
     end
   end
 
   def all_tags
-    tags.map(&:name).join(', ')
+    self.tags.map(&:name)
   end
+
+private
+
+  def default_values
+    self.is_published = false
+  end
+
 end
