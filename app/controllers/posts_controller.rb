@@ -11,7 +11,12 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts=Post.tagged_with(params[:query])
+    @posts=Tag.tagged_with(params[:query])
+    respond_to do |format|
+      format.json do
+        render json: @posts.to_json
+      end
+    end
   end
 
   # GET /posts/1
