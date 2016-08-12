@@ -13,7 +13,6 @@ $(document).ready(function(){
 		return  $("#query").val()
 	}
 
-
 	function doneTyping (url) {
 		var query_string = get_query_string()
 		$.ajax({
@@ -22,8 +21,13 @@ $(document).ready(function(){
 				query: query_string
 			},
 			success: function(result){
-				$("#post_list_div").html(result);
+				render_response(result);
 			}
 		});
+	}
+	function render_response(data){
+		$.each(data, function(i, item) {
+			console.log(data[i].title);
+		})
 	}
 });
