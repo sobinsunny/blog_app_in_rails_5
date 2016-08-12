@@ -5,6 +5,7 @@ class Tag < ApplicationRecord
 
  def self.tagged_with(names)
     tags = names.split(" ")
-    find_by_name(tags).posts
+    tags = find_by_name(tags)
+    tags.present? ? tags.posts : []
   end
 end

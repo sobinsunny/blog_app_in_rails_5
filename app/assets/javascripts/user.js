@@ -2,10 +2,8 @@ $(document).ready(function(){
 	var typingTimer;
 	var doneTypingInterval = 2000;
 	$('#query').on('keyup', function () {
-		if get_query_string().length > 0{
 			clearTimeout(typingTimer);
 			typingTimer = setTimeout(doneTyping,doneTypingInterval);
-		}
 	});
 	$("#query").on('keydown', function () {
 		console.log('reset timing')
@@ -28,6 +26,6 @@ $(document).ready(function(){
 		});
 	}
 	function render_posts_result(result){
-		$("#post_list_div").html(result)
+		$("#post_list_div").html(result);
 	}
 });
