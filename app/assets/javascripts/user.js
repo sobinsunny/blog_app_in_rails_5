@@ -1,19 +1,21 @@
 $(document).ready(function(){
 	var typingTimer;
-	var doneTypingInterval = 5000;
+	var doneTypingInterval = 2000;
 	$('#query').on('keyup', function () {
-		var url = "/posts/search"
-		clearTimeout(typingTimer);
-		typingTimer = setTimeout(doneTyping(url), doneTypingInterval);
+		if get_query_string().length > 0{
+			clearTimeout(typingTimer);
+			typingTimer = setTimeout(doneTyping,doneTypingInterval);
+		}
 	});
 	$("#query").on('keydown', function () {
+		console.log('reset timing')
 		clearTimeout(typingTimer);
 	});
 	function get_query_string(){
 		return  $("#query").val()
 	}
-
-	function doneTyping (url) {
+	function doneTyping() {
+		var url = "/posts/search"
 		var query_string = get_query_string()
 		$.ajax({
 			url: url,
@@ -21,13 +23,11 @@ $(document).ready(function(){
 				query: query_string
 			},
 			success: function(result){
-				render_response(result);
+				render_posts_result(result);
 			}
 		});
 	}
-	function render_response(data){
-		$.each(data, function(i, item) {
-			console.log(data[i].title);
-		})
+	function render_posts_result(result){
+		$("#post_list_div").html(result)
 	}
 });

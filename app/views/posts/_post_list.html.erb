@@ -1,7 +1,8 @@
 <%= link_to "New Post", new_post_path(@user)%>
+<%if @posts.present?%>
 <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
 	<ul class="event-list">
-		<%@user.posts.each do |post|%>
+		<%@posts.each do |post|%>
 		<li>
 			<time datetime="#{<%=post.created_at.strftime("%d-%m-%Y")%>}">
 				<span class="day"><%=post.created_at.day%></span>
@@ -23,7 +24,11 @@
 				</ul>
 			</div>
 		</li>
-
 		<%end%>
 	</ul>
+	<%else%>
+		<div class="alert-info">
+			No Search results available
+		</div>
+	<%end%>
 </div>

@@ -6,19 +6,8 @@ class PostsController < ApplicationController
   end
 
   def search
-<<<<<<< HEAD
-   if params[:tag_names]
-     @posts=Post.tagged_with(params[:query])
-    else
-      @posts=Post.all
-=======
     @posts=Tag.tagged_with(params[:query])
-    respond_to do |format|
-      format.json do
-        render json: @posts.to_json
-      end
->>>>>>> 382522623f63a90142a056040ca03386ee6b9ce0
-    end
+    render partial: "posts/post_list"
   end
 
   # GET /posts/1

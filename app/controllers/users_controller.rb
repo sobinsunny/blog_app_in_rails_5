@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def dashbord
     @user = User.includes(:posts).find(params[:id])
+    @posts = @user.posts
   end
 
   def update
