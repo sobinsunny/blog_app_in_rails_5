@@ -10,7 +10,7 @@ class User::SignIn < ActiveType::Object
   end
 
   def authenticate_user
-    errors.add(:password, 'Invalid password') if user && user.has_password?(password)
+    errors.add(:password, 'Invalid password') unless user && user.has_password?(password)
   end
 
   private

@@ -20,7 +20,7 @@
  			<ul class="nav navbar-nav navbar-right">
  				<%if user_signed?%>
  				<li><%= current_user.name %></li>
- 				<li><%= link_to "Log out",logout_path,:method=>"delete" %></li>
+ 				<li><%= link_to 'Destroy', logout_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
  				<%else%>
  				<li><%= link_to "Sign up",new_user_path %></li>
  				<li><button type="button" class="btn btn-success navbar-btn btn-circle"><%=link_to "Sign in",login_path%></button></li>
@@ -30,3 +30,4 @@
  		</div>
  	</div>
  </nav>
+ <%#= link_to 'Destroy', user_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %>
