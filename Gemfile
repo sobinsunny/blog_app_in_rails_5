@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'active_type'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bcrypt', '~> 3.1.7'
+gem 'cancancan', '~> 1.10'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
