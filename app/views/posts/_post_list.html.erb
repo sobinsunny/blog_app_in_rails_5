@@ -20,7 +20,9 @@
 					<li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
 					<li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
 					<li style="width:34%;" ><%= link_to 'Show', post_path(post) %></li>
-					<li  style="width:34%;" ><%= link_to 'Edit', edit_post_path(post) %></li>
+					<% if can? :update, post %>
+						<li  style="width:34%;" ><%= link_to 'Edit', edit_post_path(post) %></li>
+					<% end %>
 				</ul>
 			</div>
 		</li>
