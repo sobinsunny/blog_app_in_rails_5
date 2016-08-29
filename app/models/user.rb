@@ -1,9 +1,13 @@
 class User < ApplicationRecord
   attr_accessor :password
+
   has_many :posts, foreign_key: 'author_id'
+  has_many :sharings
+  has_many :accessable_posts, class_name: "Post",through: :sharings
   validates :email, :name, presence: true
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   after_save :set_user_name
+
 
   def has_password?(password)
     password_hash == BCrypt::Engine.hash_secret(password, password_salt)
@@ -12,6 +16,10 @@ class User < ApplicationRecord
   def set_user_name
     self.name = "blog_#{name}"
   end
+  def all_active_posts
+    sharing.posts
+  end
+
 
   protected
 
